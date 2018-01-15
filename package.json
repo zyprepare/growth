@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "./node_modules/.bin/webpack-dev-server --open",
-    "build": "set NODE_ENV=production && webpack --config ./webpack.pro.config.js --progress"
+    "start": "webpack-dev-server --open",
+    "build": "cross-env NODE_ENV=production webpack --config ./webpack.pro.config.js --progress",
+    "mock": "node_modules/.bin/json-server --watch mock/db.json --routes mock/routes.json --port 9090"
   },
   "author": "",
   "license": "ISC",
@@ -21,9 +22,12 @@
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-1": "^6.24.1",
     "clean-webpack-plugin": "^0.1.17",
+    "exports-loader": "^0.6.4",
     "html-webpack-plugin": "^2.30.1",
+    "json-server": "^0.12.1",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
+    "script-loader": "^0.7.2",
     "webpack": "^3.10.0"
   },
   "dependencies": {
@@ -37,6 +41,7 @@
     "postcss-loader": "^2.0.10",
     "precss": "^2.0.0",
     "style-loader": "^0.19.1",
-    "url-loader": "^0.6.2"
+    "url-loader": "^0.6.2",
+    "zepto": "^1.2.0"
   }
 }

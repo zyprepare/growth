@@ -16,6 +16,7 @@ import {observable, autorun, computed, action} from 'mobx';
 
 export default class Store {
   @observable number = 0;
+  @observable list = [];
 
   @action add = () => {
     ths.number++;

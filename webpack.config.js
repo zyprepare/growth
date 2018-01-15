@@ -7,11 +7,12 @@ const CleanWebpackPlugin = require("clean-webpack-plugin");
 module.exports = {
   devtool: 'eval-source-map',
   entry: {
-    index: './src/pages/index/index.js'
+    index: './src/pages/index/index.js',
+    vender: ['react', 'react-dom', 'mobx', 'mobx-react', 'zepto']
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: '[name]-[hash].js'
+    filename: '[name]-[chunkhash:6].js'
   },
   module: {
     rules: [
@@ -81,6 +82,10 @@ module.exports = {
         options: {
           limit: 10000, //1w字节以下大小的图片会自动转成base64
         },
+      },
+      {
+        test: require.resolve('zepto'),
+        use: ['exports-loader?window.Zepto','script-loader']
       }
     ]
   },
@@ -89,15 +94,18 @@ module.exports = {
       template: './src/pages/index/index.html',
       filename: 'index.html'
     }),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: ['vender', 'common'],
+      minChunks: 2
+    }),
     new ExtractTextWebpackPlugin("bundle.css"),
-    new webpack.optimize.UglifyJsPlugin(),
+    new webpack.optimize.UglifyJsPlugin({
+      compress: {
+        warnings: false
+      }
+    }),
     new webpack.BannerPlugin('pc首页研发组前端'),
     new webpack.HotModuleReplacementPlugin(),//热加载插件
-    new CleanWebpackPlugin('dist/*.*', {
-      root: __dirname,
-      verbose: true,
-      dry: false
-    })
   ],
   resolve: {
     extensions: ['.js', ".css", ".jsx"]
@@ -107,5 +115,12 @@ module.exports = {
     historyApiFallback: true,//不跳转
     inline: true,//实时刷新
     hot: true,
+    port: 8080,
+    proxy: {
+      '/api/*': {
+        target: 'http://localhost:9090/',
+        secure: false
+      }
+    }
   }
 }
