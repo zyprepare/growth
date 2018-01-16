@@ -8,17 +8,17 @@ module.exports = {
   devtool: 'eval-source-map',
   entry: {
     index: './src/pages/index/index.js',
-    vender: ['react', 'react-dom', 'mobx', 'mobx-react', 'zepto']
+    home: './src/pages/home/index.js',
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: '[name]-[chunkhash:6].js'
+    filename: '[name].js'
   },
   module: {
     rules: [
       {
         test: /\.jsx?$/,
-        exclude: /(node_modules|bower_components)/,
+        exclude: /node_modules/,
         loader: 'babel-loader', //使用的加载器名称
         query: { //babel的配置参数，可以写在.babelrc文件里也可以写在这里
           presets: ['env', 'react', 'stage-1'],
@@ -27,7 +27,7 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        exclude: /(node_modules|bower_components)/,
+        exclude: /node_modules/,
         // loader: 'style-loader!css-loader'
         // use: ExtractTextWebpackPlugin.extract({
         //   fallback: "style-loader",
@@ -90,13 +90,24 @@ module.exports = {
     ]
   },
   plugins: [
+    new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
       template: './src/pages/index/index.html',
-      filename: 'index.html'
+      filename: 'index.html',
+      chunks: ['index', 'vendor', 'manifest']
+    }),
+    new HtmlWebpackPlugin({
+      template: './src/pages/home/index.html',
+      filename: 'home.html',
+      chunks: ['home', 'vendor', 'manifest']
     }),
     new webpack.optimize.CommonsChunkPlugin({
-      name: ['vender', 'common'],
+      name: 'vendor',
       minChunks: 2
+    }),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'manifest',
+      chunks: ['vendor']
     }),
     new ExtractTextWebpackPlugin("bundle.css"),
     new webpack.optimize.UglifyJsPlugin({

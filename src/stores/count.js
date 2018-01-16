@@ -15,10 +15,23 @@ import {observable, autorun, computed, action} from 'mobx';
 // number.set(20);
 
 export default class Store {
-  @observable number = 0;
-  @observable list = [];
+  @observable num = 0;
+  @observable num2 = 0;
 
-  @action add = () => {
-    ths.number++;
+  @action addNum = () => {
+    this.num++;
+  };
+  @action addNum2 = () => {
+    this.num2++;
+  };
+
+  @computed get total() {
+    return this.num + this.num2;
+  }
+
+  @action getList = () => {
+    $.get('/api/posts', function (response) {
+      console.log(response);
+    })
   }
 }

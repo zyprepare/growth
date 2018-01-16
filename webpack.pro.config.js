@@ -8,11 +8,11 @@ module.exports = {
   devtool: 'null',
   entry: {
     index: './src/pages/index/index.js',
-    vender: ['react', 'react-dom', 'mobx', 'mobx-react', 'zepto']
+    home: './src/pages/home/index.js',
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: '[name]-[chunkhash:6].js'
+    filename: '[name]-[chunkhash:8].js'
   },
   module: {
     rules: [{
@@ -27,11 +27,6 @@ module.exports = {
       {
         test: /\.css$/,
         exclude: /node_modules/,
-        // loader: 'style-loader!css-loader'
-        // use: ExtractTextWebpackPlugin.extract({
-        //   fallback: "style-loader",
-        //   use: "css-loader"
-        // })
         use: ExtractTextWebpackPlugin.extract({
           fallback: "style-loader",
           use: [{
@@ -52,27 +47,6 @@ module.exports = {
             }
           ]
         }),
-        // use: [
-        //   {
-        //     loader: 'style-loader',
-        //   },
-        //   {
-        //     loader: 'css-loader',
-        //     options: {
-        //       importLoaders: 1,
-        //     }
-        //   },
-        //   {
-        //     loader: 'postcss-loader',
-        //     options: {
-        //       plugins: () => [
-        //         require('autoprefixer'),
-        //         require('precss'),
-        //         require('postcss-flexbugs-fixes')
-        //       ]
-        //     }
-        //   }
-        // ]
       },
       {
         test: [/\.gif$/, /\.jpe?g$/, /\.png$/],
@@ -90,11 +64,21 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: './src/pages/index/index.html',
-      filename: 'index.html'
+      filename: 'index.html',
+      chunks: ['index', 'vendor', 'manifest']
+    }),
+    new HtmlWebpackPlugin({
+      template: './src/pages/home/index.html',
+      filename: 'home.html',
+      chunks: ['home', 'vendor', 'manifest']
     }),
     new webpack.optimize.CommonsChunkPlugin({
-      name: ['vender', 'common'],
+      name: 'vendor',
       minChunks: 2
+    }),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'manifest',
+      chunks: ['vendor']
     }),
     new ExtractTextWebpackPlugin("bundle.css"),
     new webpack.optimize.UglifyJsPlugin({
