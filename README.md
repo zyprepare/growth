@@ -9,6 +9,6 @@
   json-server：模拟后台接口数据
 ## 开发说明：
   项目下载后，在growth目录中，执行 npm install，<br>
-  开发时执行命令 npm start <br>
+  本地开发时执行命令 npm start <br>
   模拟后台接口执行命令 npm mock <br>
-  打上线包执行 npm run build
+  打上线包执行命令 npm run build
