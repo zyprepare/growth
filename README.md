@@ -8,4 +8,7 @@
   webpack：静态资源打包解决方案<br>
   json-server：模拟后台接口数据
 ## 开发说明：
-  项目下载后，在growth目录中，执行 npm install，开发时执行命令 npm start 如需模拟后台接口，执行命令 npm mock 打上线包执行 npm run build
+  项目下载后，在growth目录中，执行 npm install，<br>
+  开发时执行命令 npm start <br>
+  模拟后台接口执行命令 npm mock <br>
+  打上线包执行 npm run build
