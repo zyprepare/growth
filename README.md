@@ -8,6 +8,7 @@
   webpack：静态资源打包解决方案<br>
   json-server：模拟后台接口数据
 ## 开发说明：
+  *全局安装插件：npm install webpack json-server cross-env -g*<br>
   项目下载后，在growth目录中，执行 npm install，<br>
   本地开发时执行命令 npm start <br>
   模拟后台接口执行命令 npm mock <br>
