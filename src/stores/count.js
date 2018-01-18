@@ -1,4 +1,5 @@
 import {observable, autorun, computed, action} from 'mobx';
+import $ from 'zepto';
 
 // const value = observable(0);
 // const number = observable(100);

@@ -11,5 +11,5 @@
  *全局安装插件：npm install webpack webpack-dev-server json-server cross-env -g*<br>
   项目下载后，在growth目录中，执行 npm install，<br>
   本地开发时执行命令 npm start <br>
-  模拟后台接口执行命令 npm mock <br>
+  模拟后台接口执行命令 npm run mock <br>
   打上线包执行命令 npm run build
