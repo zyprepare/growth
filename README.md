@@ -5,8 +5,9 @@
   es6/es7：最新版的js语法<br>
   react：组件化开发解决方案<br>
   mobx：数据状态管理解决方案<br>
-  webpack：静态资源打包解决方案<br>
-  json-server：模拟后台接口数据
+  webpack：静态资源打包工具<br>
+  json-server：模拟后台接口数据工具
+  ESLint：代码规范检查工具
 ## 开发说明：
  *全局安装插件：npm install webpack webpack-dev-server json-server cross-env -g*<br>
   项目下载后，在growth目录中，执行 npm install，<br>
