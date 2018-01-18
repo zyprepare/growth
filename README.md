@@ -6,7 +6,7 @@
   react：组件化开发解决方案<br>
   mobx：数据状态管理解决方案<br>
   webpack：静态资源打包工具<br>
-  json-server：模拟后台接口数据工具
+  json-server：模拟后台接口数据工具<br>
   ESLint：代码规范检查工具
 ## 开发说明：
  *全局安装插件：npm install webpack webpack-dev-server json-server cross-env -g*<br>
