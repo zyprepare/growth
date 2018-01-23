@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
-import './index.css';
 import $ from 'zepto';
 
-export default class Greet extends Component {
-  logo = {};
-
+export default class Welcome extends Component {
   componentDidMount() {
     this.animate(this.logo);
   }
+
+  logo = {};
 
   animate(dom) {
     setTimeout(() => {
@@ -18,9 +17,14 @@ export default class Greet extends Component {
   render() {
     return (
       <div className="container">
-        <h1 ref={(el) => {this.logo = el}}>Welcome!</h1>
+        <h1 ref={(el) => {
+          this.logo = el;
+        }}
+        >
+          Welcome!
+        </h1>
         <a href="home.html">go home page</a>
       </div>
-    )
+    );
   }
 }

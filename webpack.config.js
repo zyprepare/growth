@@ -5,10 +5,10 @@ const ExtractTextWebpackPlugin = require('extract-text-webpack-plugin');
 const CleanWebpackPlugin = require("clean-webpack-plugin");
 
 module.exports = {
-  devtool: 'eval-source-map',
+  devtool: 'cheap-module-source-map',
   entry: {
-    index: './src/pages/index/index.js',
-    home: './src/pages/home/index.js',
+    index: './src/pages/index/index.jsx',
+    home: './src/pages/home/index.jsx',
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -110,11 +110,11 @@ module.exports = {
       chunks: ['vendor']
     }),
     new ExtractTextWebpackPlugin("bundle.css"),
-    new webpack.optimize.UglifyJsPlugin({
-      compress: {
-        warnings: false
-      }
-    }),
+    // new webpack.optimize.UglifyJsPlugin({
+    //   compress: {
+    //     warnings: false
+    //   }
+    // }),
     new webpack.BannerPlugin('pc首页研发组前端'),
     new webpack.HotModuleReplacementPlugin(),//热加载插件
   ],

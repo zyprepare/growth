@@ -1,4 +1,4 @@
-import {observable, autorun, computed, action} from 'mobx';
+import { observable, computed, action } from 'mobx';
 import $ from 'zepto';
 
 // const value = observable(0);
@@ -33,6 +33,6 @@ export default class Store {
   @action getList = () => {
     $.get('/api/posts', function (response) {
       console.log(response);
-    })
+    });
   }
 }

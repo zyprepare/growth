@@ -1,9 +1,10 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { observer } from 'mobx-react';
 
-const Total = observer(({store}) => <div>总数：{store.total}</div>);
+const Total = observer(({ store }) => <div>总数：{ store.total }</div>);
 
-const Main = observer(({store}) => (
+const Main = observer(({ store }) => (
   <div>
     <p>num1: {store.num}</p>
     <p>num1: {store.num2}</p>
@@ -16,14 +17,14 @@ const Main = observer(({store}) => (
 
 @observer
 export default class Count extends Component {
+  static componentWillReact() {
+    console.log('render');
+  }
   componentWillReceiveProps(nextProps) {
     console.log('nextProps ', nextProps);
   }
-  componentWillUpdate(nextProps, nextState) {
-    console.log('nextProps ', nextProps)
-  }
-  componentWillReact() {
-    console.log('render');
+  componentWillUpdate(nextProps) {
+    console.log('nextProps ', nextProps);
   }
   render() {
     return (
@@ -31,6 +32,10 @@ export default class Count extends Component {
         <Main store={this.props.store} />
         <Total store={this.props.store} />
       </div>
-    )
+    );
   }
 }
+
+Count.propTypes = {
+  store: PropTypes.object.isRequired,
+};
