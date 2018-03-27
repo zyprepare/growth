@@ -28,11 +28,6 @@ module.exports = {
       {
         test: /\.css$/,
         exclude: /node_modules/,
-        // loader: 'style-loader!css-loader'
-        // use: ExtractTextWebpackPlugin.extract({
-        //   fallback: "style-loader",
-        //   use: "css-loader"
-        // })
         use: ExtractTextWebpackPlugin.extract({
           fallback: "style-loader",
           use: [
@@ -54,27 +49,6 @@ module.exports = {
             }
           ]
         }),
-        // use: [
-        //   {
-        //     loader: 'style-loader',
-        //   },
-        //   {
-        //     loader: 'css-loader',
-        //     options: {
-        //       importLoaders: 1,
-        //     }
-        //   },
-        //   {
-        //     loader: 'postcss-loader',
-        //     options: {
-        //       plugins: () => [
-        //         require('autoprefixer'),
-        //         require('precss'),
-        //         require('postcss-flexbugs-fixes')
-        //       ]
-        //     }
-        //   }
-        // ]
       },
       {
         test: [/\.gif$/, /\.jpe?g$/, /\.png$/],
@@ -110,12 +84,7 @@ module.exports = {
       chunks: ['vendor']
     }),
     new ExtractTextWebpackPlugin("bundle.css"),
-    // new webpack.optimize.UglifyJsPlugin({
-    //   compress: {
-    //     warnings: false
-    //   }
-    // }),
-    new webpack.BannerPlugin('pc首页研发组前端'),
+    new webpack.BannerPlugin('垂直业务研发组'),
     new webpack.HotModuleReplacementPlugin(),//热加载插件
   ],
   resolve: {

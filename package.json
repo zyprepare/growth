@@ -5,10 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dev-server --open",
-    "build": "cross-env NODE_ENV=production webpack --config ./webpack.pro.config.js --progress",
-    "mock": "node_modules/.bin/json-server --watch mock/db.json --routes mock/routes.json --port 9090",
-    "lint": "node_modules/.bin/eslint --ext .js,.jsx src"
+    "start": "npx webpack-dev-server --open",
+    "build": "npx cross-env NODE_ENV=production webpack --config ./webpack.pro.config.js --progress",
+    "mock": "npx json-server --watch mock/db.json --routes mock/routes.json --port 9090",
+    "lint": "npx eslint --ext .js,.jsx src"
   },
   "pre-commit": [
     "lint"
@@ -27,6 +27,7 @@
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-1": "^6.24.1",
     "clean-webpack-plugin": "^0.1.17",
+    "cross-env": "^5.1.4",
     "eslint": "^4.16.0",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-loader": "^1.9.0",
@@ -38,7 +39,9 @@
     "json-server": "^0.12.1",
     "pre-commit": "^1.2.2",
     "script-loader": "^0.7.2",
-    "webpack": "^3.10.0"
+    "webpack": "^3.10.0",
+    "webpack-cli": "^2.0.13",
+    "webpack-dev-server": "^2.10.0"
   },
   "dependencies": {
     "autoprefixer": "^7.2.5",

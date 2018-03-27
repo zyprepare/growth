@@ -86,7 +86,7 @@ module.exports = {
         warnings: false
       }
     }),
-    new webpack.BannerPlugin('pc首页研发组前端'),
+    new webpack.BannerPlugin('垂直业务研发组'),
     new CleanWebpackPlugin(
       ['dist'], {
         root: __dirname,
