@@ -9,7 +9,6 @@
   json-server：模拟后台接口数据工具<br>
   ESLint：代码规范检查工具
 ## 开发说明：
- *全局安装插件：npm install webpack webpack-dev-server json-server cross-env -g*<br>
   项目下载后，在growth目录中，执行 npm install <br>
   本地开发时执行命令 npm start <br>
   模拟后台接口执行命令 npm run mock <br>
