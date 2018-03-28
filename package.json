@@ -6,6 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "npx webpack-dev-server --open",
+    "dev": "npx cross-env NODE_ENV=development webpack --config ./webpack.config.js --progress",
     "build": "npx cross-env NODE_ENV=production webpack --config ./webpack.pro.config.js --progress",
     "mock": "npx json-server --watch mock/db.json --routes mock/routes.json --port 9090",
     "lint": "npx eslint --ext .js,.jsx src"
