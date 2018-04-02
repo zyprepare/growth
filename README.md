@@ -1,10 +1,11 @@
 # growth
 ## 项目说明：
-  该项目是一个前端脚手架，采用es6/es7 + react + mobx + webpack架构。
+  该项目是一个前端脚手架，采用es6/es7 + react + mobx + webpack架构。<br>
+  -增加redux数据状态管理方案，todo.html为参考demo。
 ## 技术说明：
   es6/es7：最新版的js语法<br>
   react：组件化开发解决方案<br>
-  mobx：数据状态管理解决方案<br>
+  mobx/redux：数据状态管理解决方案<br>
   webpack：静态资源打包工具<br>
   json-server：模拟后台接口数据工具<br>
   ESLint：代码规范检查工具
