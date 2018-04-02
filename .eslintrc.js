@@ -30,5 +30,7 @@ module.exports = {
     "prefer-arrow-callback": 0,
     "class-methods-use-this": "off",
     "react/forbid-prop-types": [1, {"forbid": ["any"]}],
+    'jsx-a11y/click-events-have-key-events': 0,
+    "jsx-a11y/no-noninteractive-element-interactions": 0,
   }
 }
