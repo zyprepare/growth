@@ -31,7 +31,7 @@ const makeWebpack = (options) => {
           }
         },
         {
-          test: /\.css$/,
+          test: /\.less$/,
           exclude: /node_modules/,
           use: ExtractTextWebpackPlugin.extract({
             fallback: "style-loader",
@@ -46,12 +46,23 @@ const makeWebpack = (options) => {
                 loader: 'postcss-loader',
                 options: {
                   plugins: () => [
-                    require('autoprefixer'),
-                    require('precss'),
-                    require('postcss-flexbugs-fixes')
+                    require('autoprefixer')
                   ]
                 }
-              }
+              },
+              {
+                loader: 'less-loader'
+              },
+              // {
+              //   loader: 'postcss-loader',
+              //   options: {
+              //     plugins: () => [
+              //       require('autoprefixer'),
+              //       require('precss'),
+              //       require('postcss-flexbugs-fixes')
+              //     ]
+              //   }
+              // }
             ]
           }),
         },
@@ -85,7 +96,7 @@ const makeWebpack = (options) => {
       }),
     ].concat(pages),
     resolve: {
-      extensions: ['.js', ".css", ".jsx"]
+      extensions: ['.js', ".css", ".less", ".jsx"]
     },
   }
 
