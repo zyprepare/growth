@@ -80,6 +80,9 @@ const makeWebpack = (options) => {
       }),
       new ExtractTextWebpackPlugin("bundle.css?v=[chunkhash:8]"),
       new webpack.BannerPlugin('垂直业务研发组'),
+      new webpack.DefinePlugin({
+        __ENV__: JSON.stringify(process.env.NODE_ENV)
+      }),
     ].concat(pages),
     resolve: {
       extensions: ['.js', ".css", ".jsx"]

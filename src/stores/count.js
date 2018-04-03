@@ -1,6 +1,7 @@
 import { observable, useStrict, computed, action, runInAction } from 'mobx';
 // import $ from 'zepto';
 import 'whatwg-fetch';
+import log from '../utils/log';
 
 useStrict(true);
 
@@ -45,7 +46,7 @@ class Count {
         this.data = res;
       });
     } catch (error) {
-      console.log(error);
+      log('err ', error);
     }
   }
 }
