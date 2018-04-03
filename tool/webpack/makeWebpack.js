@@ -27,7 +27,7 @@ const makeWebpack = (options) => {
           loader: 'babel-loader', //使用的加载器名称
           query: { //babel的配置参数，可以写在.babelrc文件里也可以写在这里
             presets: ['env', 'react', 'stage-1'],
-            plugins: ['transform-decorators-legacy', 'transform-decorators']
+            plugins: ['transform-decorators-legacy', 'transform-decorators', 'transform-runtime']
           }
         },
         {

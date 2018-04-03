@@ -1,5 +1,8 @@
-import { observable, computed, action } from 'mobx';
-import $ from 'zepto';
+import { observable, useStrict, computed, action, runInAction } from 'mobx';
+// import $ from 'zepto';
+import 'whatwg-fetch';
+
+useStrict(true);
 
 // const value = observable(0);
 // const number = observable(100);
@@ -15,13 +18,15 @@ import $ from 'zepto';
 // number.set(-200);
 // number.set(20);
 
-export default class Store {
+class Count {
   @observable num = 0;
   @observable num2 = 0;
+  @observable data = [];
 
   @action addNum = () => {
     this.num++;
   };
+
   @action addNum2 = () => {
     this.num2++;
   };
@@ -30,9 +35,19 @@ export default class Store {
     return this.num + this.num2;
   }
 
-  @action getList = () => {
-    $.get('/api/posts', function (response) {
-      console.log(response);
-    });
+  @action getData = async () => {
+    try {
+      let res = await fetch('/api/posts');
+
+      res = await res.json();
+
+      runInAction('get data', () => {
+        this.data = res;
+      });
+    } catch (error) {
+      console.log(error);
+    }
   }
 }
+
+export default new Count();

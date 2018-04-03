@@ -1,8 +1,14 @@
 import React from 'react';
 import ReactDom from 'react-dom';
+import { Provider } from 'mobx-react';
 import App from './app';
+import store from '../../stores/count';
 
 ReactDom.render(
-  <App />,
+  (
+    <Provider store={store}>
+      <App />
+    </Provider>
+  ),
   document.getElementById('root'),
 );
