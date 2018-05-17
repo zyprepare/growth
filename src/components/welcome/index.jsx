@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import $ from 'zepto';
+import './index.scss';
 
 export default class Welcome extends Component {
   componentDidMount() {
@@ -23,7 +24,7 @@ export default class Welcome extends Component {
         >
           Welcome!
         </h1>
-        <a href="home.html">go home page</a>
+        <a href="home.html" className="text-primary">go home page</a>
       </div>
     );
   }

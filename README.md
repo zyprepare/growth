@@ -3,6 +3,7 @@
   该项目是一个前端脚手架，采用es6/es7 + react + mobx + webpack架构。<br>
   -增加redux数据状态管理方案，todo.html为参考demo。<br>
   -增加react-router路由解决方案，router.html为参考demo。
+  -支持多页面方案。
 ## 技术说明：
   es6/es7：最新版的js语法<br>
   react：组件化开发解决方案<br>

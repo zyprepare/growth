@@ -22,6 +22,13 @@ const makeWebpack = (options) => {
     module: {
       rules: [
         {
+          test: [/\.ejs$/],
+          exclude: /node_modules/,
+          use: [{
+            loader: 'ejs-loader'
+          }]
+        },
+        {
           test: /\.jsx?$/,
           exclude: /node_modules/,
           loader: 'babel-loader', //使用的加载器名称
@@ -31,7 +38,7 @@ const makeWebpack = (options) => {
           }
         },
         {
-          test: /\.less$/,
+          test: /\.scss$/,
           exclude: /node_modules/,
           use: ExtractTextWebpackPlugin.extract({
             fallback: "style-loader",
@@ -51,7 +58,7 @@ const makeWebpack = (options) => {
                 }
               },
               {
-                loader: 'less-loader'
+                loader: 'sass-loader'
               },
               // {
               //   loader: 'postcss-loader',
@@ -89,14 +96,14 @@ const makeWebpack = (options) => {
         chunks: ['vendor'],
         minChunks: Infinity,
       }),
-      new ExtractTextWebpackPlugin("bundle.css?v=[chunkhash:8]"),
+      new ExtractTextWebpackPlugin("[name].css?v=[chunkhash:8]"),
       new webpack.BannerPlugin('垂直业务研发组'),
       new webpack.DefinePlugin({
         __ENV__: JSON.stringify(process.env.NODE_ENV)
       }),
     ].concat(pages),
     resolve: {
-      extensions: ['.js', ".css", ".less", ".jsx"]
+      extensions: ['.js', ".css", ".jsx"]
     },
   }
 
@@ -110,7 +117,7 @@ const makeWebpack = (options) => {
       historyApiFallback: true,//不跳转
       inline: true,//实时刷新
       hot: true,
-      port: 8080,
+      port: 8081,
       proxy: {
         '/api/*': {
           target: 'http://localhost:9090/',

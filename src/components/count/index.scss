@@ -1,0 +1,7 @@
+@import "../../styles/base.scss";
+@import "../../styles/mixins.scss";
+
+.container {
+  height: rem(300);
+  @include fontSize(20);
+}

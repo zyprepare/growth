@@ -1,3 +1,10 @@
 node_modules
+build
 dist
+war
+.svn
+temp
+tmp
+/.idea
+*.iml
 *.log

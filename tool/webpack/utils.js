@@ -20,7 +20,7 @@ const getEntry = (filePath) => {
  * @return {Object}
  */
 const getPages = (filePath, chunks=['vendor', 'manifest']) => {
-  let obj = getNameAndFiles(filePath, 'html');
+  let obj = getNameAndFiles(filePath, 'ejs');
   let arr = [];
 
   for (let key in obj) {

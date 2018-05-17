@@ -1,0 +1,10 @@
+@import "../../styles/base.scss";
+@import "../../styles/mixins.scss";
+
+.container {
+  width: rem(750);
+}
+
+h1 {
+  @include fontSize(20);
+}
